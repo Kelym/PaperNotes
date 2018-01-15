@@ -32,3 +32,7 @@ tmp/*
 # Data
 *DATA/*
 *data/*
+
+# Ignore Jupyter Tmp File
+.ipynb_checkpoints/*
+
