@@ -2,6 +2,8 @@
 # Play with Recurrent Neural Net
 # --------------------------------------------------------------------------
 # Code Reference: Andrej Karpathy and Yoav Goldberg (links in the code)
+#
+# Practice RNN with only NumPy
 # 
 # Imagine neural unit as a function Fn(input_data) -> output_data. In a
 #   typical feed forward neural nets, the output of a function is fed to
