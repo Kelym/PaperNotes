@@ -1,20 +1,21 @@
-# ==========================================================================
+# ==============================================================================
 # Dueling DQN, compared with DQN, on OpenAI gym CartPole.
-# --------------------------------------------------------------------------
-# Code adapted from: https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/5.3_Dueling_DQN
+# ------------------------------------------------------------------------------
+# Code adapted from: https://github.com/MorvanZhou/Reinforcement-learning-with-
+#   tensorflow/tree/master/contents/5.3_Dueling_DQN
 #
 # Practice Deep Reinforcement Learning with Tensorflow
 #
-# Deep Q Network is a way to do Reinforcement Learning. Specifically, it 
-#   uses a neural network to approximate the expected reward of taking 
-#   action a at state s, denoted as Q(s,a). Then, when playing a game, 
-#   the player could choose the action that maximize the expected reward
-#   for the current state. Q is usually calculated by:
+# Deep Q Network is a way to do Reinforcement Learning. Specifically, it uses a 
+#   neural network to approximate the expected reward of taking action a at 
+#   state s, denoted as Q(s,a). Then, when playing a game, the player could 
+#   choose the action that maximize the expected reward for the current state. 
+#   Q is usually calculated by:
 #       Q(s, a) = reward + reward_decay * max[Q(s_, a_)]
 #           where max[Q(s_, a_)] is the best reward for the next state s_
 # 
-# Double DQN tries to avoid overestimating max[Q(s_, a_)]. This might in 
-#   DQN because it uses the same Q value to select and evaluate an action.
+# Double DQN tries to avoid overestimating max[Q(s_, a_)]. This might happen to 
+#   DQN because it uses the same Q value to select and evaluate an action. 
 #   In double DQN, we copy the Q value to Q_next and calculate
 #   max[Q_next(s_, a_)]. While updating Q values, we freeze the Q_next.
 #   We only copy Q value to Q_next at a given frequency. 
@@ -24,10 +25,10 @@
 #   ii) A(s,a) is the "advantage" of taking action a at state s. 
 #       The advantage is calculated relative to all possible actions at s. 
 #
-# This code compares performance of DQN and DuelingQN, while both uses
-#   double Q network, on a OpenAI Gym cartpole game. 
+# This code compares performance of DQN and DuelingQN, while both uses double
+#   Q network, on a OpenAI Gym Pendulum game. 
 #  
-# ==========================================================================
+# ==============================================================================
 # 
 import gym
 import matplotlib.pyplot as plt
