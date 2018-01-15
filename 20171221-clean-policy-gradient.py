@@ -1,5 +1,5 @@
 # ==========================================================================
-# Policy Gradient
+# Policy Gradient in tensorflow
 # --------------------------------------------------------------------------
 # Cleaned my solution to Sergey Levine UCB Course Deep RL, HW2
 # 
