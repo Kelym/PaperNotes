@@ -109,7 +109,6 @@ def train_PG(exp_name='',
             n_layers=n_layers,
             size=size,
             activation=tf.nn.relu) # The output should be an unnormalized log-prob of action
-        print(sy_logits_na.shape)
         sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1), axis=[1]) # sampled ac
         sy_logprob_n = tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=sy_ac_na, 
