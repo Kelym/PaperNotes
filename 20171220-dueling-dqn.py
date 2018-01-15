@@ -1,8 +1,7 @@
 # ==========================================================================
 # Dueling DQN, compared with DQN, on OpenAI gym CartPole.
 # --------------------------------------------------------------------------
-# Code adapted from: https://github.com/MorvanZhou/Reinforcement-learning-
-# with-tensorflow/blob/master/contents/5.3_Dueling_DQN/RL_brain.py
+# Code adapted from: https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/5.3_Dueling_DQN
 #
 # Practice Deep Reinforcement Learning with Tensorflow
 #
