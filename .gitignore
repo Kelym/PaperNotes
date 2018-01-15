@@ -25,3 +25,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Temporary
+tmp/*
+
+# Data
+*DATA/*
+*data/*
