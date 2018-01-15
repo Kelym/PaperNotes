@@ -111,8 +111,6 @@ def train_PG(exp_name='',
             activation=tf.nn.relu) # The output should be an unnormalized log-prob of action
         print(sy_logits_na.shape)
         sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1), axis=[1]) # sampled ac
-        if sy_sampled_ac == 2:
-            print("?")
         sy_logprob_n = tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=sy_ac_na, 
             logits=sy_logits_na)
@@ -312,7 +310,6 @@ def main():
         p = Process(target=train_func, args=tuple())
         p.start()
         p.join()
-        
 
 if __name__ == "__main__":
     main()
