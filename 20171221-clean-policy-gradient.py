@@ -8,7 +8,7 @@
 #   evaluates the expected reward of taking certain action at a given 
 #   state, policy gradient can handle continuous action space easily. 
 #
-# For discrete action spaces, th e neural net reads the current state and 
+# For discrete action spaces, the neural net reads the current state and 
 #   output an unnormalized log probability for each action. For continuous
 #   action spaces, the net outputs the mean and variance for each dimension
 #   of the action space. To fit the neural net, we sample trajectories from
@@ -27,6 +27,7 @@
 # 
 # To run:
 #   python 20171221-clean-policy-gradient.py 'CartPole-v1'
+#   see the code for additional arg
 # ==========================================================================
 
 import numpy as np
