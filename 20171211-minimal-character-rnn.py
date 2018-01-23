@@ -155,7 +155,7 @@ def char_lm():
             return [(c,cnt/s) for c,cnt in counter.items()]
         return {hist:normalize(chars) for hist,chars in lm.items()}
 
-    def genreate_letter(lm, history, candidates):
+    def generate_letter(lm, history, candidates):
         if history not in lm: return np.random.choice(candidates)
         pred, prob = zip(*lm[history])
         return np.random.choice(pred, p=prob)
@@ -166,7 +166,7 @@ def char_lm():
         candidates = list(set(candidates))
         out = []
         for i in range(nletters):
-            c = genreate_letter(lm, history, candidates)
+            c = generate_letter(lm, history, candidates)
             history = history[1:] + c 
             out.append(c)
         return "".join(out)
