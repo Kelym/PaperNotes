@@ -86,6 +86,7 @@ def train_PG(exp_name='',
     np.random.seed(seed)
     env = gym.make(env_name)
     discrete = isinstance(env.action_space, gym.spaces.Discrete)
+    print("The %s environment is discrete ? %d" % (env_name, discrete))
 
     # Maximum length for episodes
     max_path_length = max_path_length or env.spec.max_episode_steps
@@ -123,12 +124,13 @@ def train_PG(exp_name='',
             n_layers=n_layers,
             size=size,
             activation=tf.nn.relu)
-        sy_logstd = tf.get_variable("logstd",shape=[ac_dim]) 
-        sy_sampled_ac = sy_mean + tf.multiply(tf.exp(sy_logstd),
-                                              tf.random_normal(tf.shape(sy_mean)))
+        sy_logstd = tf.get_variable("logstd",shape=[1, ac_dim],
+                    initializer=tf.zeros_initializer) 
+        sy_sampled_ac = sy_mean + tf.exp(sy_logstd) * \
+                                  tf.random_normal(tf.shape(sy_mean))
         dist = tf.contrib.distributions.MultivariateNormalDiag(loc=sy_mean, 
             scale_diag=tf.exp(sy_logstd)) 
-        sy_logprob_n = -dist.log_prob(sy_ac_na)
+        sy_logprob_n = - dist.log_prob(sy_ac_na)
 
     weighted_negative_likelihood = tf.multiply(sy_logprob_n, sy_adv_n)
     loss = tf.reduce_mean(weighted_negative_likelihood)
